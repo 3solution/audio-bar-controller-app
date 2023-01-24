@@ -1,11 +1,11 @@
-import { Canvas, extend } from '@react-three/fiber';
 import React, { Suspense, useState } from 'react';
+import { Canvas, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
 import Controller from '../../components/_ui/Controller';
+import MainContent from '../../components/_three/MainContent';
 
 import styles from './styles.module.scss';
-import MainContent from '../../components/_three/MainContent';
 
 extend({ TextGeometry });
 
