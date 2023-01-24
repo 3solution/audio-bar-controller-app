@@ -15,7 +15,12 @@ const Box: React.FC<Props> = ({ name, position, length }) => {
       args={[1, length, 0.2]}
       radius={0.05}
     >
-      <meshLambertMaterial attach='material' color='#404040' />
+      <meshLambertMaterial
+        attach='material'
+        color='#ff80ff'
+        opacity={0.7}
+        transparent
+      />
     </RoundedBox>
   );
 };

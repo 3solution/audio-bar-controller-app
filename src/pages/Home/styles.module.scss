@@ -1,7 +1,11 @@
 .wrapper {
-  @apply container mx-auto max-w-full w-full h-full text-black relative;
-
+  @apply container mx-auto max-w-full w-full h-full bg-white relative;
+      
   .canvas {
-    @apply w-full h-full bg-gray-300 flex justify-center items-center;
+    @apply bg-white flex justify-center items-center;
+  }
+
+  .hiddenBlock {
+    @apply absolute -top-8 w-full h-96 bg-white;
   }
 }

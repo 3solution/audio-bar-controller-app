@@ -10,6 +10,7 @@ type Props = {
   length: number;
   speed: number;
   isSubmit: boolean;
+  setIsDisable: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const MainContent: React.FC<Props> = ({
@@ -18,22 +19,29 @@ const MainContent: React.FC<Props> = ({
   length,
   speed,
   isSubmit,
+  setIsDisable,
 }) => {
   const { scene } = useThree();
   const movingBox = scene.getObjectByName('movingBox');
-  console.log('movingBox: ', movingBox);
 
   useEffect(() => {
     if (movingBox) {
       gsap.to(movingBox.position, {
         duration: 5 / speed,
-        y: -10 - (length * 3) / 2,
+        y: -9 - (length * 3) / 2,
         delay: when,
-      });
-      gsap.to(movingBox.position, {
-        duration: 0,
-        y: 10 + (length * 3) / 2,
-        delay: 0,
+        ease: 'back.out(1)',
+        onStart: () => {
+          setIsDisable(true);
+        },
+        onComplete: () => {
+          setIsDisable(false);
+          gsap.to(movingBox.position, {
+            duration: 0,
+            y: 9 + (length * 3) / 2,
+            delay: 0,
+          });
+        },
       });
     }
   }, [isSubmit]);
@@ -42,7 +50,7 @@ const MainContent: React.FC<Props> = ({
     <>
       <Box
         name='movingBox'
-        position={[lane - 3, 10 + (length * 3) / 2, 0.1]}
+        position={[lane - 3, 9 + (length * 3) / 2, 0.1]}
         length={length * 3}
       />
     </>

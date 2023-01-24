@@ -27,6 +27,6 @@
   }
 
   .button {
-    @apply w-32 bg-neutral-700 text-2xl text-gray-200 font-bold mt-2 rounded-md hover:bg-neutral-600 active:bg-neutral-800;
+    @apply w-32 bg-neutral-700 text-2xl text-gray-200 font-bold mt-2 rounded-md hover:bg-neutral-600 active:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-700;
   }
 }

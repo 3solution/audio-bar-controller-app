@@ -11,6 +11,7 @@ type Props = {
   setLength: React.Dispatch<React.SetStateAction<number>>;
   setSpeed: React.Dispatch<React.SetStateAction<number>>;
   setIsSubmit: React.Dispatch<React.SetStateAction<boolean>>;
+  isDisable: boolean;
 };
 
 const Controller: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const Controller: React.FC<Props> = ({
   setLength,
   setSpeed,
   setIsSubmit,
+  isDisable,
 }) => {
   const [laneTemp, setLaneTemp] = useState(1);
   const [whenTemp, setWhenTemp] = useState(1);
@@ -93,6 +95,7 @@ const Controller: React.FC<Props> = ({
         <p className={styles.text}>{speedTemp}</p>
       </div>
       <button
+        disabled={isDisable}
         className={styles.button}
         onClick={() => {
           onsubmit();

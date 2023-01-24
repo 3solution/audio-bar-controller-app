@@ -1674,7 +1674,7 @@
 
 "@remix-run/router@1.3.0":
   version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.3.0.tgz#b6ee542c7f087b73b3d8215b9bf799f648be71cb"
+  resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.3.0.tgz"
   integrity sha512-nwQoYb3m4DDpHTeOwpJEuDt8lWVcujhYYSFGLluC+9es2PyLjm+jjq3IeRBQbwBtPLJE/lkuHuGHr8uQLgmJRA==
 
 "@rollup/plugin-babel@^5.2.0":
@@ -2211,10 +2211,22 @@
   dependencies:
     "@types/jest" "*"
 
+"@types/three@^0.148.1":
+  version "0.148.1"
+  resolved "https://registry.npmjs.org/@types/three/-/three-0.148.1.tgz"
+  integrity sha512-gZwIyTBMxKXqJHXmZ0dzvDieuQ4hz8MPNHtkRrAwER/xPlAh9eP2WIfaolvQY+wJAzlNV5a9ceS4JT+i/jybsw==
+  dependencies:
+    "@types/webxr" "*"
+
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.2.tgz"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
+
+"@types/webxr@*":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@types/webxr/-/webxr-0.5.0.tgz"
+  integrity sha512-IUMDPSXnYIbEO2IereEFcgcqfDREOgmbGqtrMpVPpACTU6pltYLwHgVkrnYv0XhWEcjio9sYEfIEzgn3c7nDqA==
 
 "@types/ws@^8.5.1":
   version "8.5.4"
@@ -4988,6 +5000,11 @@ grapheme-splitter@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
+
+gsap@^3.11.4:
+  version "3.11.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.11.4.tgz#e6d972d3509a7431b86d81d6fc3bbeb6862e5ff1"
+  integrity sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==
 
 gzip-size@^6.0.0:
   version "6.0.0"
@@ -7813,7 +7830,7 @@ react-refresh@^0.11.0:
 
 react-router-dom@^6.7.0:
   version "6.7.0"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.7.0.tgz#0249f4ca4eb704562b8b0ff29caeb928c3a6ed38"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.7.0.tgz"
   integrity sha512-jQtXUJyhso3kFw430+0SPCbmCmY1/kJv8iRffGHwHy3CkoomGxeYzMkmeSPYo6Egzh3FKJZRAL22yg5p2tXtfg==
   dependencies:
     "@remix-run/router" "1.3.0"
@@ -7821,7 +7838,7 @@ react-router-dom@^6.7.0:
 
 react-router@6.7.0:
   version "6.7.0"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.7.0.tgz#db262684c13b5c2970694084ae9e8531718a0681"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-6.7.0.tgz"
   integrity sha512-KNWlG622ddq29MAM159uUsNMdbX8USruoKnwMMQcs/QWZgFUayICSn2oB7reHce1zPj6CG18kfkZIunSSRyGHg==
   dependencies:
     "@remix-run/router" "1.3.0"
@@ -8862,7 +8879,7 @@ three-stdlib@^2.20.4:
 
 three@^0.148.0:
   version "0.148.0"
-  resolved "https://registry.npmjs.org/three/-/three-0.148.0.tgz"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.148.0.tgz#b6f62f9c84227f8d51c151bf17b67984ded8e4d7"
   integrity sha512-8uzVV+qhTPi0bOFs/3te3RW6hb3urL8jYEl6irjCWo/l6sr8MPNMcClFev/MMYeIxr0gmDcoXTy/8LXh/LXkfw==
 
 throat@^6.0.1:
