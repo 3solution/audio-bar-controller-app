@@ -16,9 +16,13 @@
     .value {
       @apply w-full border outline-none bg-gray-100;
 
-      &.input {
-        @apply px-1;
+      &.slider {
+        @apply ml-2;
       }
+    }
+
+    .text {
+      @apply w-20 bg-white text-black text-center;
     }
   }
 

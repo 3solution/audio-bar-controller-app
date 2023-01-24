@@ -10,6 +10,7 @@ type Props = {
   setWhen: React.Dispatch<React.SetStateAction<number>>;
   setLength: React.Dispatch<React.SetStateAction<number>>;
   setSpeed: React.Dispatch<React.SetStateAction<number>>;
+  setIsSubmit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Controller: React.FC<Props> = ({
@@ -17,6 +18,7 @@ const Controller: React.FC<Props> = ({
   setWhen,
   setLength,
   setSpeed,
+  setIsSubmit,
 }) => {
   const [laneTemp, setLaneTemp] = useState(1);
   const [whenTemp, setWhenTemp] = useState(1);
@@ -28,6 +30,7 @@ const Controller: React.FC<Props> = ({
     setWhen(whenTemp);
     setLength(lengthTemp);
     setSpeed(speedTemp);
+    setIsSubmit((prev) => !prev);
   };
 
   return (
@@ -47,23 +50,6 @@ const Controller: React.FC<Props> = ({
         </select>
       </div>
       <div className={styles.controller}>
-        <p className={styles.label}>When:</p>
-        <input
-          type='number'
-          min={0.5}
-          max={10}
-          className={classNames(styles.value, styles.input)}
-          value={whenTemp}
-          onChange={(e) =>
-            setWhenTemp(
-              e.target.value === '' || parseFloat(e.target.value) < 0.5
-                ? 0.5
-                : parseFloat(e.target.value)
-            )
-          }
-        />
-      </div>
-      <div className={styles.controller}>
         <p className={styles.label}>Length:</p>
         <select
           className={styles.value}
@@ -77,21 +63,34 @@ const Controller: React.FC<Props> = ({
         </select>
       </div>
       <div className={styles.controller}>
+        <p className={styles.label}>When:</p>
+        <input
+          type='range'
+          min={0.5}
+          max={10}
+          step={0.1}
+          className={classNames(styles.value, styles.slider)}
+          defaultValue={1}
+          onChange={(e) => {
+            setWhenTemp(parseFloat(e.target.value));
+          }}
+        />
+        <p className={styles.text}>{whenTemp}</p>
+      </div>
+      <div className={styles.controller}>
         <p className={styles.label}>Speed:</p>
         <input
-          type='number'
+          type='range'
           min={1}
           max={5}
-          className={classNames(styles.value, styles.input)}
-          value={speedTemp}
-          onChange={(e) =>
-            setSpeedTemp(
-              e.target.value === '' || parseFloat(e.target.value) < 1
-                ? 1
-                : parseFloat(e.target.value)
-            )
-          }
+          step={0.1}
+          className={classNames(styles.value, styles.slider)}
+          defaultValue={1}
+          onChange={(e) => {
+            setSpeedTemp(parseFloat(e.target.value));
+          }}
         />
+        <p className={styles.text}>{speedTemp}</p>
       </div>
       <button
         className={styles.button}
