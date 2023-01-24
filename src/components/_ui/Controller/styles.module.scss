@@ -1,0 +1,28 @@
+.wrapper {
+  @apply max-w-lg w-full flex flex-col items-center gap-1 px-2 pt-4 pb-2 absolute right-2 top-2 bg-gray-500 rounded-md;
+  width: calc(100% - 16px);
+
+  .title {
+    @apply w-full text-center text-lg font-bold;
+  }
+
+  .controller {
+    @apply w-full flex flex-row gap-2;
+
+    .label {
+      @apply text-base font-bold w-20;
+    }
+
+    .value {
+      @apply w-full border outline-none bg-gray-100;
+
+      &.input {
+        @apply px-1;
+      }
+    }
+  }
+
+  .button {
+    @apply w-32 bg-neutral-700 text-2xl text-gray-200 font-bold mt-2 rounded-md hover:bg-neutral-600 active:bg-neutral-800;
+  }
+}
