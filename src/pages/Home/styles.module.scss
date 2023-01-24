@@ -1,0 +1,7 @@
+.wrapper {
+  @apply container mx-auto max-w-full w-full h-full text-black relative;
+
+  .canvas {
+    @apply w-full h-full bg-gray-300 flex justify-center items-center;
+  }
+}
