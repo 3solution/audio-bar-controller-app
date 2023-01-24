@@ -27,7 +27,7 @@ const MainContent: React.FC<Props> = ({
   useEffect(() => {
     if (movingBox) {
       gsap.to(movingBox.position, {
-        duration: 5 / speed,
+        duration: speed + (speed / (5 + length)) * 5,
         y: -10 - (length * 3) / 2,
         delay: when,
         ease: 'back.out(1)',
