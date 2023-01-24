@@ -21,7 +21,7 @@ const verticalLines = [
       y: 0,
       z: 0,
     },
-    radius: 0.01,
+    radius: 0.04,
     length: 18,
     color: '#b3b3b3',
   },
@@ -36,7 +36,7 @@ const verticalLines = [
       y: 0,
       z: 0,
     },
-    radius: 0.01,
+    radius: 0.04,
     length: 18,
     color: '#b3b3b3',
   },
@@ -53,7 +53,7 @@ const verticalLines = [
     },
     radius: 0.05,
     length: 18,
-    color: '#ff0000',
+    color: '#b36b00',
   },
   {
     position: {
@@ -66,7 +66,7 @@ const verticalLines = [
       y: 0,
       z: 0,
     },
-    radius: 0.01,
+    radius: 0.04,
     length: 18,
     color: '#b3b3b3',
   },
@@ -81,7 +81,7 @@ const verticalLines = [
       y: 0,
       z: 0,
     },
-    radius: 0.01,
+    radius: 0.04,
     length: 18,
     color: '#b3b3b3',
   },
@@ -98,7 +98,7 @@ const verticalLines = [
     },
     radius: 0.05,
     length: 18,
-    color: '#ff0000',
+    color: '#b36b00',
   },
 ];
 
@@ -113,7 +113,7 @@ const horizontalLine = {
     y: 0,
     z: Math.PI / 2,
   },
-  radius: 0.03,
+  radius: 0.04,
   length: 5,
   color: '#b3b3b3',
 };
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
           />
           <mesh position={[0, 0, 0]} scale={[5, 15, 1]}>
             <planeBufferGeometry />
-            <meshStandardMaterial attach='material' color='rgba(0,0,255,0.7)' />
+            <meshStandardMaterial attach='material' color='#3D3020' />
           </mesh>
           {verticalLines.map((item, index: number) => (
             <mesh
