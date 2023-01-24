@@ -23,12 +23,13 @@ const MainContent: React.FC<Props> = ({
 }) => {
   const { scene } = useThree();
   const movingBox = scene.getObjectByName('movingBox');
+  const horizontalGroup = scene.getObjectByName('horizontalGroup');
 
   useEffect(() => {
     if (movingBox) {
       gsap.to(movingBox.position, {
-        duration: speed + (speed / (5 + length)) * 5,
-        y: -10 - (length * 3) / 2,
+        duration: speed + (speed / (5 + length)) * 6,
+        y: -10.5 - (length * 3) / 2,
         delay: when,
         ease: 'back.out(1)',
         onStart: () => {
@@ -36,11 +37,18 @@ const MainContent: React.FC<Props> = ({
         },
         onComplete: () => {
           setIsDisable(false);
-          gsap.to(movingBox.position, {
-            duration: 0,
-            y: 10 + (length * 3) / 2,
-            delay: 0,
-          });
+          movingBox.position.y = 10.5 + (length * 3) / 2;
+        },
+      });
+    }
+    if (horizontalGroup) {
+      gsap.to(horizontalGroup.position, {
+        duration: speed + (speed / (5 + length)) * 6,
+        y: -21 - length * 3,
+        delay: when,
+        ease: 'back.out(0)',
+        onComplete: () => {
+          horizontalGroup.position.y = 0;
         },
       });
     }
@@ -50,7 +58,7 @@ const MainContent: React.FC<Props> = ({
     <>
       <Box
         name='movingBox'
-        position={[lane - 3, 10 + (length * 3) / 2, 0.1]}
+        position={[lane - 3, 10.5 + (length * 3) / 2, 0.1]}
         length={length * 3}
       />
     </>

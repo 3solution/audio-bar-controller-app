@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { Canvas, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 
 extend({ TextGeometry });
 
-const lines = [
+const verticalLines = [
   {
     position: {
       x: 0.5,
@@ -100,97 +100,23 @@ const lines = [
     length: 18,
     color: '#ff0000',
   },
-  {
-    position: {
-      x: 0,
-      y: 1.5,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
-  {
-    position: {
-      x: 0,
-      y: 4.5,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
-  {
-    position: {
-      x: 0,
-      y: 7.5,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
-  {
-    position: {
-      x: 0,
-      y: -1.5,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
-  {
-    position: {
-      x: 0,
-      y: -4.5,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
-  {
-    position: {
-      x: 0,
-      y: -7.49,
-      z: 0,
-    },
-    rotation: {
-      x: 0,
-      y: 0,
-      z: Math.PI / 2,
-    },
-    radius: 0.01,
-    length: 5,
-    color: '#b3b3b3',
-  },
 ];
+
+const horizontalLine = {
+  position: {
+    x: 0,
+    y: -7.5,
+    z: 0,
+  },
+  rotation: {
+    x: 0,
+    y: 0,
+    z: Math.PI / 2,
+  },
+  radius: 0.03,
+  length: 5,
+  color: '#b3b3b3',
+};
 
 const Home: React.FC = () => {
   const [lane, setLane] = useState(1);
@@ -199,6 +125,7 @@ const Home: React.FC = () => {
   const [speed, setSpeed] = useState(1);
   const [isSubmit, setIsSubmit] = useState(true);
   const [isDisable, setIsDisable] = useState(false);
+  const horizontalGroup: any = useRef();
 
   return (
     <div className={styles.wrapper}>
@@ -219,7 +146,7 @@ const Home: React.FC = () => {
             <planeBufferGeometry />
             <meshStandardMaterial attach='material' color='rgba(0,0,255,0.7)' />
           </mesh>
-          {lines.map((item, index: number) => (
+          {verticalLines.map((item, index: number) => (
             <mesh
               key={index}
               position={[item.position.x, item.position.y, item.position.z]}
@@ -232,6 +159,41 @@ const Home: React.FC = () => {
               <meshStandardMaterial attach='material' color={item.color} />
             </mesh>
           ))}
+          <group
+            name='horizontalGroup'
+            ref={horizontalGroup}
+            position={[0, 0, 0]}
+          >
+            {new Array(20).fill(0).map((item, index: number) => (
+              <mesh
+                key={index}
+                position={[
+                  horizontalLine.position.x,
+                  horizontalLine.position.y + index * 3,
+                  horizontalLine.position.z,
+                ]}
+                rotation={[
+                  horizontalLine.rotation.x,
+                  horizontalLine.rotation.y,
+                  horizontalLine.rotation.z,
+                ]}
+              >
+                <cylinderBufferGeometry
+                  attach='geometry'
+                  args={[
+                    horizontalLine.radius,
+                    horizontalLine.radius,
+                    horizontalLine.length,
+                    10,
+                  ]}
+                />
+                <meshStandardMaterial
+                  attach='material'
+                  color={horizontalLine.color}
+                />
+              </mesh>
+            ))}
+          </group>
           <MainContent
             lane={lane}
             when={when}
