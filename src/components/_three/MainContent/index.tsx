@@ -31,7 +31,7 @@ const MainContent: React.FC<Props> = ({
         duration: speed + (speed / (5 + length)) * 6,
         y: -10.5 - (length * 3) / 2,
         delay: when,
-        ease: 'back.out(1)',
+        ease: 'none',
         onStart: () => {
           setIsDisable(true);
         },
@@ -46,7 +46,7 @@ const MainContent: React.FC<Props> = ({
         duration: speed + (speed / (5 + length)) * 6,
         y: -21 - length * 3,
         delay: when,
-        ease: 'back.out(0)',
+        ease: 'none',
         onComplete: () => {
           horizontalGroup.position.y = 0;
         },
