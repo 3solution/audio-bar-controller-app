@@ -28,7 +28,7 @@ const MainContent: React.FC<Props> = ({
     if (movingBox) {
       gsap.to(movingBox.position, {
         duration: 5 / speed,
-        y: -9 - (length * 3) / 2,
+        y: -10 - (length * 3) / 2,
         delay: when,
         ease: 'back.out(1)',
         onStart: () => {
@@ -38,7 +38,7 @@ const MainContent: React.FC<Props> = ({
           setIsDisable(false);
           gsap.to(movingBox.position, {
             duration: 0,
-            y: 9 + (length * 3) / 2,
+            y: 10 + (length * 3) / 2,
             delay: 0,
           });
         },
@@ -50,7 +50,7 @@ const MainContent: React.FC<Props> = ({
     <>
       <Box
         name='movingBox'
-        position={[lane - 3, 9 + (length * 3) / 2, 0.1]}
+        position={[lane - 3, 10 + (length * 3) / 2, 0.1]}
         length={length * 3}
       />
     </>
